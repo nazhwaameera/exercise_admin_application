@@ -1,17 +1,16 @@
+import 'package:exercise_admin_application/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
+  final AppRouter appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Exercise Application'),
-      ),
       body: BlocProvider(
-        create: (context) => HomeCubit(),
+        create: (context) => HomeCubit(appRouter),
         child: HomeContent(),
       ),
     );

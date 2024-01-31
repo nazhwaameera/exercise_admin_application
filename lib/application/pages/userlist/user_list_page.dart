@@ -1,7 +1,22 @@
+import 'package:exercise_admin_application/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'cubit/user_list_cubit.dart'; // Import your cubit
+
+class UserListPage extends StatelessWidget {
+  final AppRouter appRouter = AppRouter();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => UserListCubit(),
+        child: UserListContent(),
+      ),
+    );
+  }
+}
 
 class UserListContent extends StatelessWidget {
   @override
